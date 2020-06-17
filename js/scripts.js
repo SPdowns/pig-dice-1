@@ -19,16 +19,13 @@ Player.prototype.pass = function() {
   this.totalScore += this.roundScore;
 }
 
-Player.prototype.turnEnd = function() {
-
-}
-
 
 // User Interface Logic ----------------
 
 $(document).ready(function() {
   let playerOne = new Player(0, 0, 0);
-  $("button#p1-roll").click(function() {
+  let playerTwo = new Player(0, 0, 0)
+  $("button#p1-roll").click(function() {                    //UI for Player One----------------
     playerOne.roll();
 
 
@@ -37,7 +34,7 @@ $(document).ready(function() {
     $("#p1-round-score").text(playerOne.roundScore);
   });
 
-  $("button#p1-pass").click(function() {
+  $("button#p1-pass").click(function() {                  
     playerOne.pass();
     playerOne.roundScore = 0;
 
@@ -45,21 +42,21 @@ $(document).ready(function() {
     $("#p1-round-score").text(playerOne.roundScore);
   });
 
-  $("button#p2-roll").click(function() {
-    playerOne.roll();
+  $("button#p2-roll").click(function() {                     //UI for Player Two----------------
+    playerTwo.roll();
 
 
     document.getElementById('sound1').play();
-    $("#roll-score").text(playerOne.rollScore);
-    $("#p2-round-score").text(playerOne.roundScore);
+    $("#roll-score").text(playerTwo.rollScore);
+    $("#p2-round-score").text(playerTwo.roundScore);
   });
 
   $("button#p2-pass").click(function() {
-    playerOne.pass();
-    playerOne.roundScore = 0;
+    playerTwo.pass();
+    playerTwo.roundScore = 0;
 
-    $("#p2-total-score").text(playerOne.totalScore);
-    $("#p2-round-score").text(playerOne.roundScore);
+    $("#p2-total-score").text(playerTwo.totalScore);
+    $("#p2-round-score").text(playerTwo.roundScore);
   });
 });
 
