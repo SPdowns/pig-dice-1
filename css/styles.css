@@ -5,3 +5,7 @@
 .well {
   height: 200px;
 }
+
+#winnerDisplay {
+  display: none;
+}

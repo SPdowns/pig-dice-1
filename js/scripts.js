@@ -26,8 +26,9 @@ Player.prototype.pass = function(playerOne, playerTwo) {
 function winner(player) {
   console.log(player.roundScore, player.totalScore)
   if (player.roundScore + player.totalScore >= 100) {
+  $("#winnerDisplay").show();
   $("#winner").text(player.playerName + " wins!");
-  $(".btn").hide();
+  $(".play-btn").hide();
   }
 }
 
@@ -42,7 +43,7 @@ $(document).ready(function() {
   $("button#p1-roll").click(function() {                    //UI for Player One----------------
     playerOne.roll();
     winner(playerOne);
-    // document.getElementById('sound1').play();
+    document.getElementById('sound1').play();
     $("#roll-score").text(playerOne.rollScore);
     $("#p1-round-score").text(playerOne.roundScore);
   });
@@ -59,7 +60,7 @@ $(document).ready(function() {
   $("button#p2-roll").click(function() {                     //UI for Player Two----------------
     playerTwo.roll();
     winner(playerOne);
-    // document.getElementById('sound1').play();
+    document.getElementById('sound1').play();
     $("#roll-score").text(playerTwo.rollScore);
     $("#p2-round-score").text(playerTwo.roundScore);
   });
@@ -72,4 +73,7 @@ $(document).ready(function() {
     $("#p2-total-score").text(playerTwo.totalScore);
     $("#p2-round-score").text(playerTwo.roundScore);
   });
+  // $("button#reset").click(function() {
+  //   playerOne = {rollScore: 0, roundScore: 0, totalScore: 0}
+  // });
 });
