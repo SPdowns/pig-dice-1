@@ -6,12 +6,11 @@ function Player(rollScore, roundScore, totalScore) {
   this.totalScore = totalScore
 }
 
-Player.prototype.roll = function(playerRollScore) {
-  playerRollScore = (Math.floor(Math.random() *6) +1);
-  this.rollScore = playerRollScore
-  
+Player.prototype.roll = function() {
+  playerRoll = (Math.floor(Math.random() *6) +1);
+  this.rollScore += playerRoll
 }
 
-let playerOne = new Player();
-console.log(playerOne.roll(rollScore));
-// let roll = (Math.floor(Math.random() *6) +1)
+let playerOne = new Player(0, 0, 0);
+playerOne.roll();
+console.log(playerOne);
