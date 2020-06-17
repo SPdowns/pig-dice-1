@@ -13,7 +13,7 @@ Player.prototype.roll = function() {
   this.roundScore += playerRoll
   if (playerRoll === 1) {
     this.roundScore = 0;
-
+    switchPlayer();
   }
 }
 
@@ -32,9 +32,10 @@ function winner(player) {
   }
 }
 
-// function switchPlayer() {
-  
-// }
+function switchPlayer() {
+  $('.p1-btn').toggle();
+  $('.p2-btn').toggle();
+}
 
 $(document).ready(function() {
   let playerOne = new Player(0, 0, 0, "Player One");
@@ -50,12 +51,8 @@ $(document).ready(function() {
   $("button#p1-pass").click(function() {                  
     playerOne.pass();
     winner(playerOne);
-    // switchPlayer()
+    switchPlayer();
     playerOne.roundScore = 0;
-    
-
-    $('.p1-btn').hide();
-    $('.p2-btn').show();
 
     $("#p1-total-score").text(playerOne.totalScore);
     $("#p1-round-score").text(playerOne.roundScore);
@@ -73,9 +70,7 @@ $(document).ready(function() {
     playerTwo.pass();
     playerTwo.roundScore = 0;
     winner(playerTwo);
-
-    $('.p2-btn').hide();
-    $('.p1-btn').show();
+    switchPlayer();
 
     $("#p2-total-score").text(playerTwo.totalScore);
     $("#p2-round-score").text(playerTwo.roundScore);
