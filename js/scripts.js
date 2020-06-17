@@ -15,7 +15,9 @@ Player.prototype.roll = function() {
   }
 }
 
-
+Player.prototype.pass = function() {
+  this.totalScore += this.roundScore;
+}
 
 
 // User Interface Logic ----------------
@@ -27,7 +29,14 @@ $(document).ready(function() {
 
     $("#roll-score").text(playerOne.rollScore);
     $("#p1-round-score").text(playerOne.roundScore);
-    console.log(playerOne.rollScore);
   })
+
+  $("button#p1-pass").click(function() {
+    playerOne.pass();
+    playerOne.roundScore = "0";
+
+    $("#p1-total-score").text(playerOne.totalScore);
+    $("#p1-round-score").text(playerOne.roundScore);
+  });
 })
 
