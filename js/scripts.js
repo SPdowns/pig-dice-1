@@ -10,6 +10,9 @@ Player.prototype.roll = function() {
   playerRoll = (Math.floor(Math.random() *6) +1);
   this.rollScore = playerRoll
   this.roundScore += playerRoll
+  if (playerRoll === 1) {
+    this.roundScore = 0;
+  }
 }
 
 
