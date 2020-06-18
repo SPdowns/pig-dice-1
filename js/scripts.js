@@ -29,6 +29,8 @@ function winner(player) {
   }
 }
 
+
+
 function switchPlayer() {
   $('.p1-btn').toggle();
   $('.p2-btn').toggle();
@@ -84,7 +86,7 @@ $(document).ready(function() {
   
   $("button#p2-roll").click(function() {                     //UI for Player Two----------------
     playerTwo.roll();
-    winner(playerOne)
+    winner(playerTwo);
     showDice(playerTwo);;
     document.getElementById('sound1').play();
     $("#roll-score").text(playerTwo.rollScore);
@@ -99,8 +101,9 @@ $(document).ready(function() {
     $("#p2-total-score").text(playerTwo.totalScore);
     $("#p2-round-score").text(playerTwo.roundScore);
   });
-  $("button#reset").click(function() {                                                 //UI for Winner----------------
-    playerOne.rollScore = 0; playerOne.roundScore = 0; playerOne.totalScore = 0;
+  $("button#reset").click(function() {   
+    $("h1").effect("shake");                                              //UI for Winner----------------
+    playerOne.rollScore = 0; playerOne                                        
     playerTwo.rollScore = 0; playerTwo.roundScore = 0; playerTwo.totalScore = 0;
     $("#roll-score").text(playerOne.rollScore);
     $("#p1-round-score").text(playerOne.roundScore);

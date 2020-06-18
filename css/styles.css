@@ -3,19 +3,30 @@
 }
 
 .player-box {
+background-color: whitesmoke;
+height: 200px;
+border-radius: 10px;
+text-align: center;
+padding: 25px;
+}
+
+.player-box p {
+  font-size: 1.5em;
 }
 
 #winnerDisplay {
   display: none;
+  text-align: center;
+}
+
+#winnerDisplay p {
+  font-size: 2em;
 }
 
 .dice-img {
   max-width: 190px;
   display: none;
-}
-
-.container {
-  /* background-color: #5075E1; */
+  margin-top: 30px;
 }
 
 .jumbotron {
@@ -30,13 +41,16 @@ p {
   color: black
 }
 
+h1 {
+}
+
 .btn {
   font-family: 'Fredoka One', cursive;
   color: black;
 }
-
+/* #bdc300, #12eb3a */
 body {
-  background-image: linear-gradient(to right top, #f04b96, #ff5d56, #fb9000, #bdc300, #12eb3a);
+  background-image: linear-gradient(to right top, #f04b96, #ff5d56, #fb9000,#bdc300, #12eb3a);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
