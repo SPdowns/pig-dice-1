@@ -16,20 +16,6 @@ Player.prototype.roll = function() {
   }
 }
 
-Player.prototype.computerRoll = function() {
-  let computerClick = setInterval(function() {
-    console.log(computerClick)
-    player.roll();
-    if (this.roundScore < 20) {
-      player.roll();
-    } else if (this.roundScore >= 20) {
-        clearInterval(computerClick);
-        switchPlayer();
-      }
-  }, 500);
-  console.log(computerClick)
-}
-
 Player.prototype.pass = function(playerOne, playerTwo) {
   this.totalScore += this.roundScore;
   }
@@ -45,8 +31,8 @@ function winner(player) {
 }
 
 function switchPlayer() {
-  // $('.p1-btn').toggle();
-  // $('.p2-btn').toggle();
+  $('.p1-btn').toggle();
+  $('.p2-btn').toggle();
 }
 
 function showDice(player) {
@@ -83,7 +69,6 @@ $(document).ready(function() {
     $("#roll-score").text(playerOne.rollScore);
     $("#p1-round-score").text(playerOne.roundScore);
   });
-  
   $("button#p1-pass").click(function() {                  
     playerOne.pass();
     playerOne.roundScore = 0;
@@ -96,25 +81,25 @@ $(document).ready(function() {
     console.log(playerTwo.totalScore);   
   });
   
-  // $("button#p2-roll").click(function() {                     //UI for Player Two----------------
-  //   playerTwo.roll();
-  //   winner(playerTwo);
-  //   showDice(playerTwo);;
-  //   document.getElementById('sound1').play();
-  //   $("#roll-score").text(playerTwo.rollScore);
-  //   $("#p2-round-score").text(playerTwo.roundScore);
-  // });
-  // $("button#p2-pass").click(function() {
-  //   playerTwo.pass();
-  //   playerTwo.roundScore = 0;
-  //   winner(playerTwo);
-  //   switchPlayer();
-  //   $("#p2-total-score").text(playerTwo.totalScore);
-  //   $("#p2-round-score").text(playerTwo.roundScore);
-  // });
+  $("button#p2-roll").click(function() {                     //UI for Player Two----------------
+    playerTwo.roll();
+    winner(playerTwo);
+    showDice(playerTwo);;
+    document.getElementById('sound1').play();
+    $("#roll-score").text(playerTwo.rollScore);
+    $("#p2-round-score").text(playerTwo.roundScore);
+  });
+  $("button#p2-pass").click(function() {
+    playerTwo.pass();
+    playerTwo.roundScore = 0;
+    winner(playerTwo);
+    switchPlayer();
+    $("#p2-total-score").text(playerTwo.totalScore);
+    $("#p2-round-score").text(playerTwo.roundScore);
+  });
 
   $("button#reset").click(function() {   
-    $("h1").effect("shake");                                              //UI for Winner----------------
+    $("h1").effect("shake");                                                          //UI for Winner----------------
     playerOne.rollScore = 0; playerOne.roundScore = 0; playerOne.totalScore = 0;                                       
     playerTwo.rollScore = 0; playerTwo.roundScore = 0; playerTwo.totalScore = 0;
     $("#roll-score").text(playerOne.rollScore);
@@ -126,3 +111,18 @@ $(document).ready(function() {
     $(".p1-btn").show();
   });
 });
+
+
+  // Player.prototype.computerRoll = function() {
+  //   let computerClick = setInterval(function() {
+  //     console.log(computerClick, this.rollScore, this.roundScore)
+  //     if (this.roundScore < 20) {
+  //       player.roll();
+  //     } else if (this.roundScore >= 20) {
+  //         player.pass();
+  //         clearInterval(computerClick);
+  //         switchPlayer();
+  //       }
+  //   }, 1000);
+  //   console.log(computerClick)
+  // }
