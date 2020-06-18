@@ -1,5 +1,4 @@
 // Business Logic -------------------
-
 function Player(rollScore, roundScore, totalScore, playerName) {
   this.rollScore = rollScore,
   this.roundScore = roundScore,
@@ -22,9 +21,7 @@ Player.prototype.pass = function(playerOne, playerTwo) {
   }
 
 // User Interface Logic ----------------
-
 function winner(player) {
-  console.log(player.roundScore, player.totalScore)
   if (player.roundScore + player.totalScore >= 100) {
   $("#winnerDisplay").show();
   $("#winner").text(player.playerName + " wins!");
@@ -73,7 +70,15 @@ $(document).ready(function() {
     $("#p2-total-score").text(playerTwo.totalScore);
     $("#p2-round-score").text(playerTwo.roundScore);
   });
-  // $("button#reset").click(function() {
-  //   playerOne = {rollScore: 0, roundScore: 0, totalScore: 0}
-  // });
+  $("button#reset").click(function() {                                                 //UI for Winner----------------
+    playerOne.rollScore = 0; playerOne.roundScore = 0; playerOne.totalScore = 0;
+    playerTwo.rollScore = 0; playerTwo.roundScore = 0; playerTwo.totalScore = 0;
+    $("#roll-score").text(playerOne.rollScore);
+    $("#p1-round-score").text(playerOne.roundScore);
+    $("#p1-total-score").text(playerOne.totalScore);
+    $("#p2-round-score").text(playerTwo.roundScore);
+    $("#p2-total-score").text(playerTwo.totalScore);
+    $("#winnerDisplay").hide();
+    $(".p1-btn").show();
+  });
 });
