@@ -16,7 +16,7 @@
           <h1>Pig Dice</h1>
         </div>
         <div id="top">
-          <p>Roll Score: <span id="roll-score" class="roll-score-display"></span></p>
+          <p>Roll Score: <span id="roll-score" class="roll-score-display">0</span></p>
           <img id="die-1" class="dice-img" src="img/1-dice.png" alt="die-1">
           <img id="die-2" class="dice-img" src="img/2_dice.png" alt="die-2">
           <img id="die-3" class="dice-img" src="img/3_dice.png" alt="die-3">
@@ -24,17 +24,20 @@
           <img id="die-5" class="dice-img" src="img/5_dice.png" alt="die-5">
           <img id="die-6" class="dice-img" src="img/6-dice.png" alt="die-6">
         </div>
-        <div id="player-one" class="well col-md-6">
-          <p>Player One round score: <span id="p1-round-score" class="p1-round-display">0</span></p>
-          <p>Player One total score: <span id="p1-total-score">0</span></p>
-          <button class="btn p1-btn play-btn" id="p1-roll">Roll</button>
-          <button class="btn p1-btn play-btn" id="p1-pass">Pass</button>
-        </div>
-        <div id="player-two" class="well col-md-6">
-          <p>Player Two round score: <span id="p2-round-score" class="p2-round-display">0</span></p>
-          <p>Player Two total score: <span id="p2-total-score">0</span></p>
-          <button class="btn p2-btn play-btn" id="p2-roll">Roll</button>
-          <button class="btn p2-btn play-btn" id="p2-pass">Pass</button>
+        <div class="row">
+          <div id="player-one" class="col-md-4 player-box">
+            <p>Player One round score: <span id="p1-round-score" class="p1-round-display">0</span></p>
+            <p>Player One total score: <span id="p1-total-score">0</span></p>
+            <button class="btn p1-btn play-btn" id="p1-roll">Roll</button>
+            <button class="btn p1-btn play-btn" id="p1-pass">Pass</button>
+          </div>
+          <div class="col-md-4"></div>
+          <div id="player-two" class="col-md-4 player-box">
+            <p>Player Two round score: <span id="p2-round-score" class="p2-round-display">0</span></p>
+            <p>Player Two total score: <span id="p2-total-score">0</span></p>
+            <button class="btn p2-btn play-btn" id="p2-roll">Roll</button>
+            <button class="btn p2-btn play-btn" id="p2-pass">Pass</button>
+          </div>
         </div>
         <div id="winnerDisplay">
           <p id="winner"></p>

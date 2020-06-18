@@ -2,8 +2,7 @@
   display: none;
 }
 
-.well {
-  height: 170px;
+.player-box {
 }
 
 #winnerDisplay {
@@ -16,25 +15,32 @@
 }
 
 .container {
-  background-color: #5075E1;
+  /* background-color: #5075E1; */
 }
 
 .jumbotron {
   text-align: center;
   margin-top: 14px;
   font-family: 'Fredoka One', cursive;
+  color: black;
 }
 
 p {
   font-family: 'Fredoka One', cursive;
+  color: black
 }
 
 .btn {
   font-family: 'Fredoka One', cursive;
+  color: black;
 }
 
 body {
-  background-color: #007873;
+  background-image: linear-gradient(to right top, #f04b96, #ff5d56, #fb9000, #bdc300, #12eb3a);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #top {
