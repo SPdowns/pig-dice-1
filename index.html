@@ -5,6 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
       <link href="css/styles.css" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
       <script src="js/jquery-3.5.1.js"></script>
       <script src="js/scripts.js"></script>
       <title>Pig Dice</title>
@@ -15,17 +16,23 @@
           <h1>Pig Dice</h1>
         </div>
         <div id="top">
-          <p>The Roll Score is: <span id="roll-score" class="roll-score-display"></span></p>
+          <p>Roll Score: <span id="roll-score" class="roll-score-display"></span></p>
+          <img id="die-1" class="dice-img" src="img/1-dice.png" alt="die-1">
+          <img id="die-2" class="dice-img" src="img/2_dice.png" alt="die-2">
+          <img id="die-3" class="dice-img" src="img/3_dice.png" alt="die-3">
+          <img id="die-4" class="dice-img" src="img/4-dice.png" alt="die-4">
+          <img id="die-5" class="dice-img" src="img/5_dice.png" alt="die-5">
+          <img id="die-6" class="dice-img" src="img/6-dice.png" alt="die-6">
         </div>
         <div id="player-one" class="well col-md-6">
-          <p>Player One round score: <span id="p1-round-score" class="p1-round-display"></span></p>
-          <p>Player One total score: <span id="p1-total-score"></span></p>
+          <p>Player One round score: <span id="p1-round-score" class="p1-round-display">0</span></p>
+          <p>Player One total score: <span id="p1-total-score">0</span></p>
           <button class="btn p1-btn play-btn" id="p1-roll">Roll</button>
           <button class="btn p1-btn play-btn" id="p1-pass">Pass</button>
         </div>
         <div id="player-two" class="well col-md-6">
-          <p>Player Two round score: <span id="p2-round-score" class="p2-round-display"></span></p>
-          <p>Player Two total score: <span id="p2-total-score"></span></p>
+          <p>Player Two round score: <span id="p2-round-score" class="p2-round-display">0</span></p>
+          <p>Player Two total score: <span id="p2-total-score">0</span></p>
           <button class="btn p2-btn play-btn" id="p2-roll">Roll</button>
           <button class="btn p2-btn play-btn" id="p2-pass">Pass</button>
         </div>
@@ -37,3 +44,5 @@
       <audio id="sound1" src="snd/dice_roll_sound_01.wav" preload="auto"></audio>
     </body>
   </html>
+
+    

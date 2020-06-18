@@ -3,9 +3,41 @@
 }
 
 .well {
-  height: 200px;
+  height: 170px;
 }
 
 #winnerDisplay {
   display: none;
+}
+
+.dice-img {
+  max-width: 190px;
+  display: none;
+}
+
+.container {
+  background-color: #5075E1;
+}
+
+.jumbotron {
+  text-align: center;
+  margin-top: 14px;
+  font-family: 'Fredoka One', cursive;
+}
+
+p {
+  font-family: 'Fredoka One', cursive;
+}
+
+.btn {
+  font-family: 'Fredoka One', cursive;
+}
+
+body {
+  background-color: #007873;
+}
+
+#top {
+text-align: center;
+height: 250px;
 }

@@ -34,11 +34,39 @@ function switchPlayer() {
   $('.p2-btn').toggle();
 }
 
+function showDice(player) {
+  console.log(player.rollScore)
+  if (player.rollScore === 1) {
+    $(".dice-img").hide();
+    $("#die-1").show();
+  }
+  else if (player.rollScore === 2) {
+    $(".dice-img").hide();
+    $("#die-2").show();
+  }
+  else if (player.rollScore === 3) {
+    $(".dice-img").hide();
+    $("#die-3").show();
+  }
+  else if (player.rollScore === 4) {
+    $(".dice-img").hide();
+    $("#die-4").show();
+  }
+  else if (player.rollScore === 5) {
+    $(".dice-img").hide();
+    $("#die-5").show();
+  }
+  else {
+    $(".dice-img").hide();
+    $("#die-6").show();
+  }
+}
 $(document).ready(function() {
   let playerOne = new Player(0, 0, 0, "Player One");
   let playerTwo = new Player(0, 0, 0, "Player Two")
   $("button#p1-roll").click(function() {                    //UI for Player One----------------
     playerOne.roll();
+    showDice(playerOne);
     winner(playerOne);
     document.getElementById('sound1').play();
     $("#roll-score").text(playerOne.rollScore);
@@ -56,7 +84,8 @@ $(document).ready(function() {
   
   $("button#p2-roll").click(function() {                     //UI for Player Two----------------
     playerTwo.roll();
-    winner(playerOne);
+    winner(playerOne)
+    showDice(playerTwo);;
     document.getElementById('sound1').play();
     $("#roll-score").text(playerTwo.rollScore);
     $("#p2-round-score").text(playerTwo.roundScore);
