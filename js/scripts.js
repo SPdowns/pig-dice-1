@@ -16,11 +16,26 @@ Player.prototype.roll = function() {
   }
 }
 
+Player.prototype.computerRoll = function() {
+  let computerClick = setInterval(function() {
+    console.log(computerClick)
+    player.roll();
+    if (this.roundScore < 20) {
+      player.roll();
+    } else if (this.roundScore >= 20) {
+        clearInterval(computerClick);
+        switchPlayer();
+      }
+  }, 500);
+  console.log(computerClick)
+}
+
 Player.prototype.pass = function(playerOne, playerTwo) {
   this.totalScore += this.roundScore;
   }
 
 // User Interface Logic ----------------
+
 function winner(player) {
   if (player.roundScore + player.totalScore >= 100) {
   $("#winnerDisplay").show();
@@ -29,36 +44,28 @@ function winner(player) {
   }
 }
 
-
-
 function switchPlayer() {
-  $('.p1-btn').toggle();
-  $('.p2-btn').toggle();
+  // $('.p1-btn').toggle();
+  // $('.p2-btn').toggle();
 }
 
 function showDice(player) {
-  console.log(player.rollScore)
   if (player.rollScore === 1) {
     $(".dice-img").hide();
     $("#die-1").show();
-  }
-  else if (player.rollScore === 2) {
+  } else if (player.rollScore === 2) {
     $(".dice-img").hide();
     $("#die-2").show();
-  }
-  else if (player.rollScore === 3) {
+  } else if (player.rollScore === 3) {
     $(".dice-img").hide();
     $("#die-3").show();
-  }
-  else if (player.rollScore === 4) {
+  } else if (player.rollScore === 4) {
     $(".dice-img").hide();
     $("#die-4").show();
-  }
-  else if (player.rollScore === 5) {
+  } else if (player.rollScore === 5) {
     $(".dice-img").hide();
     $("#die-5").show();
-  }
-  else {
+  } else {
     $(".dice-img").hide();
     $("#die-6").show();
   }
@@ -68,6 +75,8 @@ $(document).ready(function() {
   let playerTwo = new Player(0, 0, 0, "Player Two")
   $("button#p1-roll").click(function() {                    //UI for Player One----------------
     playerOne.roll();
+    $("#dice").hide();
+    $(".roll-score-display").show();
     showDice(playerOne);
     winner(playerOne);
     document.getElementById('sound1').play();
@@ -79,31 +88,34 @@ $(document).ready(function() {
     playerOne.pass();
     playerOne.roundScore = 0;
     winner(playerOne);
-    switchPlayer();
+    switchPlayer();                    
     $("#p1-total-score").text(playerOne.totalScore);
     $("#p1-round-score").text(playerOne.roundScore);
+    playerTwo.computerRoll();
+    console.log(playerTwo.roundScore);
+    console.log(playerTwo.totalScore);   
   });
   
-  $("button#p2-roll").click(function() {                     //UI for Player Two----------------
-    playerTwo.roll();
-    winner(playerTwo);
-    showDice(playerTwo);;
-    document.getElementById('sound1').play();
-    $("#roll-score").text(playerTwo.rollScore);
-    $("#p2-round-score").text(playerTwo.roundScore);
-  });
+  // $("button#p2-roll").click(function() {                     //UI for Player Two----------------
+  //   playerTwo.roll();
+  //   winner(playerTwo);
+  //   showDice(playerTwo);;
+  //   document.getElementById('sound1').play();
+  //   $("#roll-score").text(playerTwo.rollScore);
+  //   $("#p2-round-score").text(playerTwo.roundScore);
+  // });
+  // $("button#p2-pass").click(function() {
+  //   playerTwo.pass();
+  //   playerTwo.roundScore = 0;
+  //   winner(playerTwo);
+  //   switchPlayer();
+  //   $("#p2-total-score").text(playerTwo.totalScore);
+  //   $("#p2-round-score").text(playerTwo.roundScore);
+  // });
 
-  $("button#p2-pass").click(function() {
-    playerTwo.pass();
-    playerTwo.roundScore = 0;
-    winner(playerTwo);
-    switchPlayer();
-    $("#p2-total-score").text(playerTwo.totalScore);
-    $("#p2-round-score").text(playerTwo.roundScore);
-  });
   $("button#reset").click(function() {   
     $("h1").effect("shake");                                              //UI for Winner----------------
-    playerOne.rollScore = 0; playerOne                                        
+    playerOne.rollScore = 0; playerOne.roundScore = 0; playerOne.totalScore = 0;                                       
     playerTwo.rollScore = 0; playerTwo.roundScore = 0; playerTwo.totalScore = 0;
     $("#roll-score").text(playerOne.rollScore);
     $("#p1-round-score").text(playerOne.roundScore);
