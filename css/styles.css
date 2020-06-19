@@ -2,10 +2,67 @@
   display: none;
 }
 
-.well {
-  height: 200px;
+.player-box {
+background-color: whitesmoke;
+height: 200px;
+border-radius: 10px;
+text-align: center;
+padding: 25px;
+}
+
+.player-box p {
+  font-size: 1.5em;
 }
 
 #winnerDisplay {
+  display: none;
+  text-align: center;
+}
+
+#winnerDisplay p {
+  font-size: 2em;
+}
+
+.dice-img {
+  max-width: 200px;
+  display: none;
+  margin-top: 30px;
+}
+
+#dice {
+  max-height: 230px;
+}
+
+.jumbotron {
+  text-align: center;
+  margin-top: 14px;
+  font-family: 'Fredoka One', cursive;
+  color: black;
+}
+
+p {
+  font-family: 'Fredoka One', cursive;
+  color: black
+}
+
+.btn {
+  font-family: 'Fredoka One', cursive;
+  color: black;
+}
+/* #bdc300, #12eb3a */
+body {
+  background-image: linear-gradient(to right top, #f04b96, #ff5d56, #fb9000,#bdc300, #12eb3a);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#top {
+text-align: center;
+height: 250px;
+}
+
+.roll-score-display {
   display: none;
 }
